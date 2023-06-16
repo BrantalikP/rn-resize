@@ -1,5 +1,5 @@
 {
-  "name": "rn-resize",
+  "name": "@brantalikp/rn-resize",
   "version": "0.1.0",
   "description": "test",
   "main": "lib/commonjs/index.js",

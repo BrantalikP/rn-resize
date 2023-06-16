@@ -5,13 +5,13 @@ Styling library for React Native Apps
 ## Installation
 
 ```sh
-npm install rn-resize
+yarn install @brantalikp/rn-resize
 ```
 
 ## Usage
 
 ```js
-import { multiply } from 'rn-resize';
+import { createStyle } from '@brantalikp/rn-resize';
 
 // ...
 
