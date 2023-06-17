@@ -40,7 +40,27 @@ export const styles = createStyle(
 
 ### Creating themed styles
 
-If you are using a `theme` in your application, you can create styles that use the theme properties. First, you need to wrap your application with the ThemeProvider and provide it your theme.
+- If you are using a `theme` in your application, you can create styles that use the `theme` properties.
+
+To use a theme in your application and get TypeScript type checking and autocompletion, you will first need to create your styles with the `MakeStylesProps` helper from the library.
+
+```js
+// theme.ts
+import { MakeStylesProps } from '@brantalikp/rn-resize';
+
+export const myCustomTheme = {
+  colors: {
+    background: 'pink',
+  },
+} as const;
+
+type Theme = typeof myCustomTheme;
+
+export type CreateStyles<T extends string> = MakeStylesProps<T, Theme>;
+
+```
+
+Then you need to wrap your application with the `ThemeProvider` and provide it your theme.
 
 **Options:**
 
@@ -51,14 +71,7 @@ If you are using a `theme` in your application, you can create styles that use t
 
 ```js
 import { ThemeProvider } from '@brantalikp/rn-resize';
-
-// Your theme
-const theme = {
-  colors: {
-    background: '#fff',
-    text: '#000',
-  },
-};
+import { myCustomTheme } from './theme';
 
 function App() {
   return (
@@ -71,30 +84,12 @@ function App() {
 export default App;
 ```
 
-Creating themed styles with TypeScript type checking and autocompletion
-
-```js
-// theme.ts
-import { MakeStylesProps } from '@brantalikp/rn-resize';
-
-export const myCustomTheme = {
-  colors: {
-    background: 'pink',
-  },
-} as const;
-
-export type Theme = typeof myCustomTheme;
-
-export type CreateStyles<T extends string> = MakeStylesProps<T, Theme>;
-
-```
-
 Then, you can create styles using your theme.
 
 ```js
 import { CreateStyles } from './theme';
 
-type StylesKeys = 'container' | 'text';
+type StylesKeys = 'container' | 'text'; // Ensures that the useStyles hook provides autocompletion for style keys.
 
 export const styles: CreateStyles<StylesKeys> = (theme) => ({
   container: {
