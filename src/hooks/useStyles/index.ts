@@ -1,18 +1,17 @@
 import { StyleSheet } from 'react-native';
 
-import { Theme } from '../../themes';
 import { createStyle } from '../../utils/createStyle';
 
 import { useTheme } from '../../contexts/Theme';
 import { CustomStyles } from '../../types';
 
-type MakeStylesCallback<T> = (theme: Theme | null) => T;
-
-export const useStyles = <T extends CustomStyles>(
-  makeStyles: MakeStylesCallback<T>
+export const useStyles = <T extends CustomStyles, U>(
+  makeStyles: ((theme: U | null) => T) | T
 ): StyleSheet.NamedStyles<T> => {
-  const { theme } = useTheme();
-  const styles = createStyle(makeStyles(theme));
+  const { theme } = useTheme<U>();
+  const styles = createStyle(
+    typeof makeStyles === 'function' ? makeStyles(theme) : makeStyles
+  );
 
   return styles;
 };

@@ -5,9 +5,9 @@ import { styles } from './styles';
 interface IThemeScreen {}
 
 const ThemeScreen = ({}: IThemeScreen) => {
-  const { container } = useStyles(styles);
+  const stole = useStyles(styles);
   return (
-    <View style={container}>
+    <View style={stole.container}>
       <Text>ThemeScreen</Text>
     </View>
   );
