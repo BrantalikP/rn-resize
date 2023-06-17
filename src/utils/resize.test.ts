@@ -10,6 +10,7 @@ describe('createStyle', () => {
         paddingLeft: 10,
         marginTop: 20,
         fontSize: 15,
+        width: 100,
       },
     };
     const expectedStyles = {
@@ -17,6 +18,7 @@ describe('createStyle', () => {
         paddingLeft: hs(10),
         marginTop: vs(20),
         fontSize: ms(15),
+        width: hs(100),
       },
     };
     const result = createStyle(styles);
@@ -43,5 +45,26 @@ describe('createStyle', () => {
     };
 
     expect(expectedStyle).toEqual(fontsStyles.h0);
+  });
+
+  it('should correctly scale numeric style properties with custom options', () => {
+    const styles: CustomStyles = {
+      container: {
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        width: 100,
+      },
+    };
+
+    const expectedStyles = {
+      container: {
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        width: hs(100, { baseWidth: 100 }),
+      },
+    };
+    const result = createStyle(styles, { baseWidth: 100 });
+
+    expect(result).toEqual(expectedStyles);
   });
 });

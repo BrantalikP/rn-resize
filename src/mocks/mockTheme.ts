@@ -1,5 +1,5 @@
 export const mockTheme = {
-  colors: { background1: 'pink' },
+  colors: { background1: 'pink', background2: 'red' },
   fonts: {},
   metrics: {},
 };
