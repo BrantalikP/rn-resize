@@ -20,6 +20,11 @@ yarn add -D @brantalikp/rn-resize
 
 You can create your styles using the `createStyle` function. This will create a stylesheet that automatically scales numeric values based on the screen size. Non-numeric values are left as they are. You can also provide your own base `width` and `height` values for scaling.
 
+**default Values(iPhone X):**
+
+- _BaseWidth_ = 375;
+- _BaseHeight_ = 812;
+
 ```js
 import { createStyle } from '@brantalikp/rn-resize';
 
@@ -112,13 +117,38 @@ Finally, in your components, you can use the **useStyles** hook to access the th
 import { useStyles } from '@brantalikp/rn-resize';
 import { styles } from './styles';
 
-function MyComponent() {
+const MyComponent = () => {
   const { container, text } = useStyles(styles);
 
   return (
     <View style={container}>
       <Text style={text}>My App</Text>
     </View>
+  );
+};
+```
+
+### Using `useTheme` hook
+
+If you want to access or modify the theme, you can use the `useTheme` hook.
+
+```js
+import { useTheme } from '@brantalikp/rn-resize';
+import { ThemeType } from './theme'
+
+const MyComponent = () => {
+const { theme, setTheme } = useTheme<ThemeType>();
+
+  // Access theme props
+  console.log(theme.colors.background);
+
+  // Update the theme
+  const updateTheme = () => {
+    setTheme({ colors: { background: 'red' } });
+  };
+
+  return (
+    //
   );
 }
 ```
