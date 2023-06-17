@@ -12,7 +12,7 @@ jobs:
 
       - name: Init Git user
         run: |
-          git config --global user.email "grounipteam@gmail.com"
+          git config --global user.email "brantalikp@gmail.com"
           git config --global user.name "Release Workflow"
       - name: Init the NPM config
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
