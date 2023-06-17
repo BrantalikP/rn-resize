@@ -1,7 +1,13 @@
 import * as React from 'react';
 
-import { DashboardScreen } from './screens';
+import { ThemeScreen } from './features/useStyles/screens/ThemeScreen';
+import { ThemeProvider } from '@brantalikp/rn-resize';
+import { myCustomTheme } from './theme/defaultTheme';
 
 export default function App() {
-  return <DashboardScreen />;
+  return (
+    <ThemeProvider theme={myCustomTheme}>
+      <ThemeScreen />
+    </ThemeProvider>
+  );
 }

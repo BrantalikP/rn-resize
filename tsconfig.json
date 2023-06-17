@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "rn-resize": ["./src/index"]
+      "@brantalikp/rn-resize": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
