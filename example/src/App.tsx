@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { DashboardScreen } from './screens';
+import { ThemeScreen } from './features/useStyles/screens/ThemeScreen';
 
 export default function App() {
-  return <DashboardScreen />;
+  return <ThemeScreen />;
 }
