@@ -1,14 +1,15 @@
-import { View, Text } from 'react-native';
 import { useStyles } from '@brantalikp/rn-resize';
+import { View, Text } from 'react-native';
+
 import { styles } from './styles';
 
 interface IThemeScreen {}
 
 const ThemeScreen = ({}: IThemeScreen) => {
-  const stole = useStyles(styles);
+  const { container, text } = useStyles(styles);
   return (
-    <View style={stole.container}>
-      <Text>ThemeScreen</Text>
+    <View style={container}>
+      <Text style={text}>ThemeScreen</Text>
     </View>
   );
 };

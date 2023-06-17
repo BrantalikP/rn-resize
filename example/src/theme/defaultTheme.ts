@@ -1,6 +1,7 @@
 export const myCustomTheme = {
   colors: {
-    background: 'pink',
+    background: '#246BFD',
+    text: '#fff',
   },
 } as const;
 

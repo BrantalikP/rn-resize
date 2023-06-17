@@ -118,9 +118,13 @@ import { useStyles } from '@brantalikp/rn-resize';
 import { styles } from './styles';
 
 function MyComponent() {
-  const classes = useStyles(styles);
+  const { container, text } = useStyles(styles);
 
-  return <View style={classes.container}>{/* Your component */}</View>;
+  return (
+    <View style={container}>
+      <Text style={text}>My App</Text>
+    </View>
+  );
 }
 ```
 
