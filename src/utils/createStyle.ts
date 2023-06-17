@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 import { vsKeys, msKeys, hsKeys } from './presets';
-import { hs, ms, vs } from './resize';
-
+import { ResizeOptions, hs, ms, vs } from './resize';
 import { CustomStyles } from '../types';
 
 export const createStyle = <T extends CustomStyles>(
-  styles: T
+  styles: T,
+  options?: ResizeOptions
 ): StyleSheet.NamedStyles<T> => {
   const newStyles: Record<string, Record<string, any>> = {};
 
@@ -22,11 +22,11 @@ export const createStyle = <T extends CustomStyles>(
       }
 
       if (vsKeys.has(key)) {
-        newStyles[style][key] = vs(value);
+        newStyles[style][key] = vs(value, options);
       } else if (hsKeys.has(key)) {
-        newStyles[style][key] = hs(value);
+        newStyles[style][key] = hs(value, options);
       } else if (msKeys.has(key)) {
-        newStyles[style][key] = ms(value);
+        newStyles[style][key] = ms(value, undefined, options);
       } else {
         newStyles[style][key] = value;
       }
