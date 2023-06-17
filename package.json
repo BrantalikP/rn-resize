@@ -57,6 +57,7 @@
   },
   "devDependencies": {
     "lint-staged": "^13.2.2",
+    "eslint-config-universe": "^11.2.0",
     "@commitlint/config-conventional": "^17.0.2",
     "@commitlint/cli": "^17.6.5",
     "@evilmartians/lefthook": "^1.2.2",
@@ -124,7 +125,9 @@
     "root": true,
     "extends": [
       "@react-native-community",
-      "prettier"
+      "prettier",
+      "universe/native",
+      "universe/web"
     ],
     "rules": {
       "prettier/prettier": [
