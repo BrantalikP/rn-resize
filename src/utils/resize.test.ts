@@ -3,6 +3,11 @@ import { hs, vs, ms } from './resize';
 import { fontsStyles } from '../mocks/mockFonts';
 import { CustomStyles } from '../types';
 
+jest.mock('react-native/Libraries/Utilities/Platform', () => ({
+  OS: 'android', // or 'ios'
+  select: () => null,
+}));
+
 describe('createStyle', () => {
   it('should correctly scale numeric style properties', () => {
     const styles = {
@@ -66,5 +71,22 @@ describe('createStyle', () => {
     const result = createStyle(styles, { baseWidth: 100 });
 
     expect(result).toEqual(expectedStyles);
+  });
+
+  it('should correctly style according a specific platform - android', () => {
+    const styles: CustomStyles = {
+      container: {
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        backgroundColor: 'red',
+        ios: {
+          backgroundColor: 'green',
+        },
+      },
+    };
+
+    const result = createStyle(styles);
+
+    expect(result.container.backgroundColor).toEqual('red');
   });
 });
