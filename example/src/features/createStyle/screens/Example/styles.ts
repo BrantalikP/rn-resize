@@ -14,6 +14,9 @@ export const styles = createStyle({
     android: {
       backgroundColor: 'blue',
     },
+    tablet: {
+      backgroundColor: 'red',
+    },
   },
   text: {
     fontSize: 40,

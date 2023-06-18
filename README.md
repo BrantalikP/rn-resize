@@ -47,9 +47,9 @@ export const styles = createStyle(
 
 You can define styles for a specific platform.
 
-|                         iOS                          |                           Android                            |                         Web                          |
-| :--------------------------------------------------: | :----------------------------------------------------------: | :--------------------------------------------------: |
-| ![iOS Screenshot](.github/Examples/platform-ios.png) | ![Android Screenshot](.github/Examples/platform-android.png) | ![Web Screenshot](.github/Examples/platform-web.png) |
+|                         iOS                          |                           Android                            |                         Web                          |                           Tablet                           |
+| :--------------------------------------------------: | :----------------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------------: |
+| ![iOS Screenshot](.github/Examples/platform-ios.png) | ![Android Screenshot](.github/Examples/platform-android.png) | ![Web Screenshot](.github/Examples/platform-web.png) | ![Tablet Screenshot](.github/Examples/platform-tablet.png) |
 
 ```js
 export const styles = createStyle({
@@ -65,6 +65,9 @@ export const styles = createStyle({
     },
     android: {
       backgroundColor: 'blue',
+    },
+    tablet: {
+      backgroundColor: 'red',
     },
   },
   text: {
