@@ -39,3 +39,12 @@ export const msKeys = new Set([
   'borderWidth',
   'flexBasis',
 ]);
+
+export const PlatformKeys = new Set([
+  'ios',
+  'android',
+  'web',
+  'tablet',
+  'macos',
+  'windows',
+]);

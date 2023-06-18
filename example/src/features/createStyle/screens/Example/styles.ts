@@ -5,7 +5,6 @@ export const styles = createStyle({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-
     web: {
       backgroundColor: 'pink',
     },

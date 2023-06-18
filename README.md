@@ -1,6 +1,6 @@
 # rn-resize
 
-This library provides a set of utilities for scaling and styling React Native components. It includes features such as scaling utilities, style creation, and a useStyles hook for dynamic styling based on your application's theme.
+The rn-resize library is a toolkit for adjusting React Native styles to fit specific devices or platforms. It offers scaling utilities, dynamic theme-based styling with a `useStyles` hook, and easy style creation.
 
 ## Supported platforms
 
@@ -41,6 +41,44 @@ export const styles = createStyle(
   },
   { baseWidth: 360, baseHeight: 640 } // optional
 );
+```
+
+### Platform Specific Styles
+
+You can define styles for a specific platform.
+
+|                         iOS                          |                           Android                            |                         Web                          |
+| :--------------------------------------------------: | :----------------------------------------------------------: | :--------------------------------------------------: |
+| ![iOS Screenshot](.github/Examples/platform-ios.png) | ![Android Screenshot](.github/Examples/platform-android.png) | ![Web Screenshot](.github/Examples/platform-web.png) |
+
+```js
+export const styles = createStyle({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    web: {
+      backgroundColor: 'pink',
+    },
+    ios: {
+      backgroundColor: 'green',
+    },
+    android: {
+      backgroundColor: 'blue',
+    },
+  },
+  text: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    web: {
+      color: 'red',
+    },
+    android: {
+      fontSize: 30,
+      color: 'white',
+    },
+  },
+});
 ```
 
 ### Creating themed styles
