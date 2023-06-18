@@ -1,13 +1,13 @@
+import { ThemeProvider } from '@brantalikp/rn-resize';
 import * as React from 'react';
 
-import { ThemeScreen } from './features/useStyles/screens/ThemeScreen';
-import { ThemeProvider } from '@brantalikp/rn-resize';
+import { Example } from './features/createStyle/screens/Example';
 import { myCustomTheme } from './theme/defaultTheme';
 
 export default function App() {
   return (
     <ThemeProvider theme={myCustomTheme}>
-      <ThemeScreen />
+      <Example />
     </ThemeProvider>
   );
 }

@@ -1,13 +1,12 @@
 import { View, Text } from 'react-native';
 
 import { styles } from './styles';
-const DashboardScreen = () => {
-  // const { container } = useStyles(styles);
+const Example = () => {
   return (
     <View style={styles.container}>
-      <Text>DashboardScreen</Text>
+      <Text style={styles.text}>Resize</Text>
     </View>
   );
 };
 
-export { DashboardScreen };
+export { Example };
