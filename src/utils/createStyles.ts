@@ -40,7 +40,7 @@ const getResizedValues = (
   return newStyles;
 };
 
-export const createStyle = <T extends CustomStyles>(
+export const createStyles = <T extends CustomStyles>(
   styles: T,
   options?: ResizeOptions
 ): StyleSheet.NamedStyles<T> => {
