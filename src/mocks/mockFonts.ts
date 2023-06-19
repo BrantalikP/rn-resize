@@ -1,6 +1,6 @@
-import { createStyle } from '../utils';
+import { createStyles } from '../utils';
 
-export const fontsStyles = createStyle({
+export const fontsStyles = createStyles({
   h0: {
     fontFamily: 'Poppins-SemiBold',
     fontSize: 60,

@@ -1,4 +1,4 @@
-import { createStyle } from './createStyle';
+import { createStyles } from './createStyles';
 import { hs, vs, ms } from './resize';
 import { fontsStyles } from '../mocks/mockFonts';
 import { CustomStyles } from '../types';
@@ -8,7 +8,7 @@ jest.mock('react-native/Libraries/Utilities/Platform', () => ({
   select: () => null,
 }));
 
-describe('createStyle', () => {
+describe('createStyles', () => {
   it('should correctly scale numeric style properties', () => {
     const styles = {
       container: {
@@ -26,7 +26,7 @@ describe('createStyle', () => {
         width: hs(100),
       },
     };
-    const result = createStyle(styles);
+    const result = createStyles(styles);
     expect(result).toEqual(expectedStyles);
   });
 
@@ -37,11 +37,11 @@ describe('createStyle', () => {
         justifyContent: 'flex-start',
       },
     };
-    const result = createStyle(styles);
+    const result = createStyles(styles);
     expect(result).toEqual(styles);
   });
 
-  it('fonts are resized correctly with createStyle util', () => {
+  it('fonts are resized correctly with createStyles util', () => {
     const expectedStyle = {
       fontFamily: 'Poppins-SemiBold',
       fontSize: ms(60),
@@ -68,7 +68,7 @@ describe('createStyle', () => {
         width: hs(100, { baseWidth: 100 }),
       },
     };
-    const result = createStyle(styles, { baseWidth: 100 });
+    const result = createStyles(styles, { baseWidth: 100 });
 
     expect(result).toEqual(expectedStyles);
   });
@@ -85,7 +85,7 @@ describe('createStyle', () => {
       },
     };
 
-    const result = createStyle(styles);
+    const result = createStyles(styles);
 
     expect(result.container.backgroundColor).toEqual('red');
   });

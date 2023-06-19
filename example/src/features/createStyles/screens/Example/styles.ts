@@ -1,6 +1,6 @@
-import { createStyle } from '@brantalikp/rn-resize';
+import { createStyles } from '@brantalikp/rn-resize';
 
-export const styles = createStyle({
+export const styles = createStyles({
   container: {
     alignItems: 'center',
     justifyContent: 'center',

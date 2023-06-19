@@ -16,9 +16,11 @@ yarn add -D @brantalikp/rn-resize
 
 ## Usage
 
-### Creating styles with `createStyle` function
+### Creating styles with `createStyles` function
 
-You can create your styles using the `createStyle` function. This will create a stylesheet that automatically scales numeric values based on the screen size. Non-numeric values are left as they are. You can also provide your own base `width` and `height` values for scaling.
+You can create your styles using the `createStyles` function. This will create a stylesheet that automatically scales numeric values based on the screen size. Non-numeric values are left as they are. You can also provide your own base `width` and `height` values for scaling.
+
+[Supported Styles](./src/utils/presets.ts)
 
 **default Values(iPhone X):**
 
@@ -26,9 +28,9 @@ You can create your styles using the `createStyle` function. This will create a 
 - _BaseHeight_ = 812;
 
 ```js
-import { createStyle } from '@brantalikp/rn-resize';
+import { createStyles } from '@brantalikp/rn-resize';
 
-export const styles = createStyle(
+export const styles = createStyles(
   {
     container: {
       flex: 1,
@@ -37,6 +39,9 @@ export const styles = createStyle(
       backgroundColor: 'blue',
       width: 40, //  scales horizontally
       height: 35, //  scales vertically
+    },
+    text: {
+      fontSize: 12, // Scales the value according to the device.
     },
   },
   { baseWidth: 360, baseHeight: 640 } // optional
@@ -52,7 +57,7 @@ You can define styles for a specific platform.
 | ![iOS Screenshot](.github/Examples/platform-ios.png) | ![Android Screenshot](.github/Examples/platform-android.png) | ![Web Screenshot](.github/Examples/platform-web.png) | ![Tablet Screenshot](.github/Examples/platform-tablet.png) |
 
 ```js
-export const styles = createStyle({
+export const styles = createStyles({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -133,7 +138,7 @@ export default App;
 Then, you can create styles using your theme.
 
 ```js
-import { CreateStyles } from './theme';
+import { createStyles } from './theme';
 
 type StylesKeys = 'container' | 'text'; // Ensures that the useStyles hook provides autocompletion for style keys.
 
@@ -143,6 +148,9 @@ export const styles: CreateStyles<StylesKeys> = (theme) => ({
     backgroundColor: theme.colors.background,
     alignItems: 'center',
     justifyContent: 'center',
+    ios: {
+      paddingTop: 20,
+    },
   },
   text: {
     fontSize: 50,
