@@ -3,6 +3,6 @@ import { View } from 'react-native';
 
 describe('ThemeScreen', () => {
   it('should render', () => {
-    const view = render(<View />);
+    render(<View />);
   });
 });
